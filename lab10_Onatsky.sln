@@ -5,31 +5,34 @@ int main()
 {
     setlocale(LC_CTYPE, "ukr"); // дозволити використання української мови
 
-    // інформація про студента
-    std::string lastName = "Іванов"; // прізвище
-    int yearOfBirth = 2000; // рік народження
-    std::string diagnosis = "грип"; // діагноз
-    std::string periodOfIllness = "10-20 березня"; // період хвороби
-
-    // виведення інформації про студента
-    std::cout << "прізвище: " << lastName << std::endl;
-    std::cout << "рік народження: " << yearOfBirth << std::endl;
-    std::cout << "діагноз: " << diagnosis << std::endl;
-    std::cout << "період хвороби: " << periodOfIllness << std::endl;
-    std::cout << std::endl;
-
-    // зміна діагнозу, якщо студент має грип
-    if (diagnosis == "грип") 
+    // оголошення структури що представляє інформацію про студента
+    struct Student 
     {
-        diagnosis = "ГРВІ";
-    }
+        std::string lastName;
+        int yearOfBirth;
+        std::string diagnosis;
+        std::string periodOfIllness;
+    };
 
-    // виведення оновленої інформації про студента
-    std::cout << "оновлена інформація про студента:" << std::endl;
-    std::cout << "прізвище: " << lastName << std::endl;
-    std::cout << "рік народження: " << yearOfBirth << std::endl;
-    std::cout << "діагноз: " << diagnosis << std::endl;
-    std::cout << "період хвороби: " << periodOfIllness << std::endl;
+    // створення екземпляра структури для студента Іванова
+    Student ivanov;
+    ivanov.lastName = "Іванов";
+    ivanov.yearOfBirth = 2000;
+    ivanov.diagnosis = "грип";
+    ivanov.periodOfIllness = "10-20 березня";
+
+    // вивід інформації про студента на екран
+    std::cout << "прізвище: " << ivanov.lastName << std::endl;
+    std::cout << "рік народження: " << ivanov.yearOfBirth << std::endl;
+    std::cout << "діагноз: " << ivanov.diagnosis << std::endl;
+    std::cout << "період хвороби: " << ivanov.periodOfIllness << std::endl;
+
+    // зміна діагнозу для студентів з діагнозом "грип"
+    if (ivanov.diagnosis == "грип") 
+    {
+        ivanov.diagnosis = "ГРВІ";
+        std::cout << "діагноз змінено на: " << ivanov.diagnosis << std::endl;
+    }
 
     return 0;
 }
